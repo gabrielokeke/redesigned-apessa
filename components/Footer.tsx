@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const apessaLinks = [
   { href: "/", label: "Accueil" },
-  { href: "/apropos", label: "A Propos" },
+  { href: "/about", label: "A Propos" },
   { href: "/partenaires", label: "Partenaires" },
   { href: "/reseaux", label: "Reseau des benevoles" },
   { href: "/blog", label: "Blog" },
