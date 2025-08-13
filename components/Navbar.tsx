@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaHome, FaInfoCircle, FaHandshake, FaUsers, FaBlog, FaEnvelope } from "react-icons/fa";
@@ -19,6 +19,7 @@ const linkIcons = [
 
 function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const apessaLinks = [
@@ -33,6 +34,42 @@ function Navbar() {
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
   const closeSidebar = () => setIsSidebarOpen(false);
 
+  // Function to handle cross-page scrolling
+  const handleScrollNavigation = (sectionId: string) => {
+    closeSidebar(); // Close mobile sidebar if open
+    
+    if (pathname === "/") {
+      // If we're already on homepage, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    } else {
+      // If we're on a different page, navigate to homepage with hash
+      router.push(`/#${sectionId}`);
+    }
+  };
+
+  // Handle scroll on page load if there's a hash in the URL
+  useEffect(() => {
+    const hash = window.location.hash.substring(1);
+    if (hash && pathname === "/") {
+      // Small delay to ensure the page has rendered
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+      }, 100);
+    }
+  }, [pathname]);
+
   return (
     <>
       {/* Top navbar */}
@@ -43,16 +80,13 @@ function Navbar() {
         <div className="hidden md:flex gap-4 font-bold text-sm">
           {apessaLinks.map(({ href, label, isScroll }, i) => (
             isScroll ? (
-              <ScrollLink
+              <button
                 key={href}
-                to={href}
-                smooth={true}
-                duration={600}
-                offset={-80} // to account for fixed navbar height
-                className={`flex items-center gap-1 px-4 py-2 rounded-md transition-colors duration-200 hover:text-red-500 cursor-pointer`}
+                onClick={() => handleScrollNavigation(href)}
+                className={`flex items-center gap-1 px-4 py-2 rounded-md transition-colors duration-200 hover:text-red-500 cursor-pointer bg-transparent border-none`}
               >
                 {linkIcons[i]} {label}
-              </ScrollLink>
+              </button>
             ) : (
               <Link
                 key={href}
@@ -101,17 +135,13 @@ function Navbar() {
               <nav className="flex flex-col p-4 space-y-3 font-bold">
                 {apessaLinks.map(({ href, label, isScroll }, i) =>
                   isScroll ? (
-                    <ScrollLink
+                    <button
                       key={href}
-                      to={href}
-                      smooth={true}
-                      duration={600}
-                      offset={-80}
-                      onClick={closeSidebar}
-                      className="flex items-center gap-2 px-2 py-1 rounded-md transition-colors duration-200 hover:text-red-500 cursor-pointer"
+                      onClick={() => handleScrollNavigation(href)}
+                      className="flex items-center gap-2 px-2 py-1 rounded-md transition-colors duration-200 hover:text-red-500 cursor-pointer bg-transparent border-none text-left"
                     >
                       {linkIcons[i]} {label}
-                    </ScrollLink>
+                    </button>
                   ) : (
                     <Link
                       key={href}
