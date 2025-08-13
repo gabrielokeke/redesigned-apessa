@@ -53,35 +53,50 @@ const blogPosts: BlogCard[] = [
 
 export default function BlogPageList() {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 ">
-      {blogPosts.map(({ slug, title, imageUrl }, index) => (
-        <motion.div
-          key={slug}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-          viewport={{ once: true }}
-        >
-          <Link
-            href={`/blog/${slug}`}
-            className="group block rounded-xl overflow-hidden shadow-md shadow-red-500 hover:shadow-xl transition-all duration-300 bg-white"
+    <section className="p-6 space-y-8">
+      {/* Writeup section */}
+      <div className="bg-red-700 text-white p-6 rounded-lg shadow-md">
+        <h2 className="text-3xl font-bold mb-4">Bienvenue sur notre blog</h2>
+        <p className="text-lg leading-relaxed">
+          Ici, vous trouverez toutes les actualités, annonces et informations importantes concernant notre organisation et la communauté que nous servons. Chaque article est conçu pour tenir nos lecteurs informés des dernières initiatives, opportunités de participation et événements marquants. 
+          <br />
+          Nos publications couvrent le recrutement, les projets communautaires, les programmes de formation, ainsi que des réflexions sur le développement et la cohésion sociale. Nous croyons que la transparence et le partage de l’information renforcent l’engagement de chacun et favorisent un esprit de collaboration et de progrès.
+          <br />
+          Parcourez nos articles ci-dessous pour rester connecté et découvrir comment vous pouvez vous impliquer et contribuer à notre mission.
+        </p>
+      </div>
+
+      {/* Blog grid */}
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {blogPosts.map(({ slug, title, imageUrl }, index) => (
+          <motion.div
+            key={slug}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
           >
-            <div className="overflow-hidden">
-              <motion.img
-                src={imageUrl}
-                alt={title}
-                className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-500"
-                whileHover={{ scale: 1.05 }}
-              />
-            </div>
-            <div className="p-4">
-              <h3 className="font-bold text-xl mb-2 text-red-700 group-hover:text-red-900 transition-colors">
-                {title}
-              </h3>
-            </div>
-          </Link>
-        </motion.div>
-      ))}
+            <Link
+              href={`/blog/${slug}`}
+              className="group block rounded-xl overflow-hidden shadow-md shadow-red-500 hover:shadow-xl transition-all duration-300 bg-white"
+            >
+              <div className="overflow-hidden">
+                <motion.img
+                  src={imageUrl}
+                  alt={title}
+                  className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  whileHover={{ scale: 1.05 }}
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="font-bold text-xl mb-2 text-red-700 group-hover:text-red-900 transition-colors">
+                  {title}
+                </h3>
+              </div>
+            </Link>
+          </motion.div>
+        ))}
+      </section>
     </section>
   );
 }
