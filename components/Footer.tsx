@@ -6,7 +6,7 @@ const apessaLinks = [
   { href: "/", label: "Accueil" },
   { href: "/about", label: "A Propos" },
   { href: "/partenaires", label: "Partenaires" },
-  { href: "/reseaux", label: "Reseau des benevoles" },
+  { href: "/resources", label: "Reseau des benevoles" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];

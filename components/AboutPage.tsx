@@ -56,12 +56,12 @@ const handleOpenPdf = () => {
 
         <p className="text-lg md:text-xl leading-relaxed text-justify mb-16">
           Avec l’avancée de la technologie et le besoin d’informations des adolescents, on constate que ces derniers souffrent d’un manque évident de sources d’informations fiables. Il en est de même pour certains parents qui se retrouvent parfois dans l’incapacité d’apporter les réponses aux divers questionnements de leurs enfants. De ce constat,{" "}
-          <strong>APESSA</strong> s’est donnée pour mission de mettre à disposition des adolescents, jeunes, parents et encadreurs ces informations, afin d’aider toute personne désireuse de s’informer de manière fiable et encourager les adolescents et les jeunes à adopter une sexualité construite et responsable…
+          <strong className="text-red-600">APESSA</strong> s’est donnée pour mission de mettre à disposition des adolescents, jeunes, parents et encadreurs ces informations, afin d’aider toute personne désireuse de s’informer de manière fiable et encourager les adolescents et les jeunes à adopter une sexualité construite et responsable…
         </p>
 
         {/* FAQ Section */}
         <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-red-600 mb-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-red-700 mb-8 text-center">
             Questions Fréquentes
           </h2>
           <div className="space-y-4">

@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -40,9 +41,10 @@ const sponsors = [
 
 const SponsorsSection = () => {
   return (
+    <>
     <section
-      className="bg-gradient-to-t from-red-200 via-red-100 to-red-50 py-16 px-6 md:px-20"
-      id="sponsors"
+    className="bg-gradient-to-t from-red-200 via-red-100 to-red-50 py-16 px-6 md:px-20"
+    id="partenaires"
     >
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -51,11 +53,11 @@ const SponsorsSection = () => {
         viewport={{ once: true }}
         className="max-w-6xl mx-auto text-gray-900"
       >
-        <h2 className="text-3xl md:text-4xl font-extrabold text-red-600 text-center mb-6">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-red-700 mb-8 text-center">
           Nos Bailleurs et Partenaires
         </h2>
 
-        <p className="text-lg md:text-xl text-justify mb-8 leading-relaxed mx-auto max-w-3xl">
+        <p className="text-lg md:text-xl text-justify mb-8 leading-relaxed mx-auto ">
           Nous sommes profondément reconnaissants envers nos bailleurs et partenaires, dont la confiance
           renouvelée chaque année est la clé de la continuité et du succès de nos activités. Leur
           engagement sincère rend possible la réalisation de nos projets ambitieux et soutient sans faille
@@ -100,6 +102,7 @@ const SponsorsSection = () => {
         </Swiper>
       </motion.div>
     </section>
+    </>
   );
 };
 

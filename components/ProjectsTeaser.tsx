@@ -52,11 +52,11 @@ const ProjectsTeaser = () => {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <Link href="/projets">
+          <Link href="/resources">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-block bg-gradient-to-b from-red-100 via-red-50 to-white text-red-500 font-semibold px-8 py-3 rounded-xl shadow-md hover:bg-yellow-300 transition"
+              className="inline-block bg-gradient-to-b cursor-pointer from-red-100 via-red-50 to-white text-red-500 font-semibold px-8 py-3 rounded-xl shadow-md hover:bg-yellow-300 transition"
             >
               Voir tous les projets
             </motion.button>
