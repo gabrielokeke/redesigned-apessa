@@ -1,53 +1,21 @@
 interface ResourcePageProps {
-  params: { slug: string };
+  params: Record<string, string>; // <- generic type ensures TS compatibility
 }
 
 const resourceDetails = {
-  "resource-1": {
-    title: "Resource 1",
-    content: "Full detailed content about Resource 1.",
-    imageUrl: "/resource1.jpg",
-  },
-  "resource-2": {
-    title: "Resource 2",
-    content: "Full detailed content about Resource 2.",
-    imageUrl: "/resource2.jpg",
-  },
-    "resource-3": {
-    title: "Resource 3",
-    content: "Full detailed content about Resource 3.",
-    imageUrl: "/resource3.jpg",
-  },
-
-      "resource-4": {
-    title: "Resource 4",
-    content: "Full detailed content about Resource 4.",
-    imageUrl: "/resource4.jpg",
-  },
-
-      "resource-5": {
-    title: "Resource 5",
-    content: "Full detailed content about Resource 5.",
-    imageUrl: "/resource5.jpg",
-  },
-
-      "resource-6": {
-    title: "Resource 6",
-    content: "Full detailed content about Resource 6.",
-    imageUrl: "/resource6.jpg",
-  },
-  // more details...
+  "resource-1": { title: "Resource 1", content: "Full detailed content about Resource 1.", imageUrl: "/resource1.jpg" },
+  "resource-2": { title: "Resource 2", content: "Full detailed content about Resource 2.", imageUrl: "/resource2.jpg" },
+  "resource-3": { title: "Resource 3", content: "Full detailed content about Resource 3.", imageUrl: "/resource3.jpg" },
+  "resource-4": { title: "Resource 4", content: "Full detailed content about Resource 4.", imageUrl: "/resource4.jpg" },
+  "resource-5": { title: "Resource 5", content: "Full detailed content about Resource 5.", imageUrl: "/resource5.jpg" },
+  "resource-6": { title: "Resource 6", content: "Full detailed content about Resource 6.", imageUrl: "/resource6.jpg" },
 };
 
-type ResourceKey = keyof typeof resourceDetails;
-
 export default function ResourcePage({ params }: ResourcePageProps) {
-  const { slug } = params;
-  const resource = resourceDetails[slug as ResourceKey];
+  const slug = params.slug as keyof typeof resourceDetails;
+  const resource = resourceDetails[slug];
 
-  if (!resource) {
-    return <p>Resource not found.</p>;
-  }
+  if (!resource) return <p>Resource not found.</p>;
 
   return (
     <article className="max-w-3xl mx-auto p-6">
