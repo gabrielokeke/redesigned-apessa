@@ -1,10 +1,26 @@
-//app/resources/page.tsx
+// app/resources/page.tsx
 "use client";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const resources = [
+// Keys must match your resourceDetails object
+export type ResourceSlug = 
+  | "resource-1"
+  | "resource-2"
+  | "resource-3"
+  | "resource-4"
+  | "resource-5"
+  | "resource-6";
+
+interface ResourceCard {
+  slug: ResourceSlug;
+  title: string;
+  description: string;
+  imageUrl: string;
+}
+
+const resources: ResourceCard[] = [
   {
     slug: "resource-1",
     title: "Resource 1",
@@ -17,37 +33,30 @@ const resources = [
     description: "Brief description 2",
     imageUrl: "/resource2.jpg",
   },
-
-    {
+  {
     slug: "resource-3",
     title: "Resource 3",
     description: "Brief description 3",
     imageUrl: "/resource3.jpg",
   },
-
-      {
+  {
     slug: "resource-4",
     title: "Resource 4",
     description: "Brief description 4",
     imageUrl: "/resource4.jpg",
   },
-
-      {
+  {
     slug: "resource-5",
     title: "Resource 5",
     description: "Brief description 5",
     imageUrl: "/resource5.jpg",
   },
-
-      {
+  {
     slug: "resource-6",
     title: "Resource 6",
     description: "Brief description 6",
     imageUrl: "/resource6.jpg",
   },
-
-
-  // add more cards here
 ];
 
 export default function ResourcesPage() {
@@ -63,7 +72,7 @@ export default function ResourcesPage() {
         >
           <Link
             href={`/resources/${slug}`}
-            className="group block  rounded-xl overflow-hidden shadow-md shadow-red-500 hover:shadow-xl transition-all duration-300 bg-white"
+            className="group block rounded-xl overflow-hidden shadow-md shadow-red-500 hover:shadow-xl transition-all duration-300 bg-white"
           >
             <div className="overflow-hidden">
               <motion.img
