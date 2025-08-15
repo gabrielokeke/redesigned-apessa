@@ -50,7 +50,7 @@ const resources: ResourceCard[] = [
 
 export default function ResourcesPage() {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+    <section className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 bg-red-50">
       {resources.map(({ slug, title, imageUrl }, index) => (
         <motion.div
           key={slug}

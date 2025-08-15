@@ -53,10 +53,10 @@ const blogPosts: BlogCard[] = [
 
 export default function BlogPageList() {
   return (
-    <section className="p-6 space-y-8">
+    <section className="p-6 space-y-8 bg-red-50">
       {/* Writeup section */}
-      <div className="bg-red-700 text-white p-6 rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold mb-4">Bienvenue sur notre blog</h2>
+      <div className=" text-red-700 p-6 rounded-lg shadow-md">
+        <h2 className="md:text-5xl text-2xl  text-center font-black mb-4">Bienvenue sur notre blog</h2>
         <p className="text-lg leading-relaxed">
           Ici, vous trouverez toutes les actualités, annonces et informations importantes concernant notre organisation et la communauté que nous servons. Chaque article est conçu pour tenir nos lecteurs informés des dernières initiatives, opportunités de participation et événements marquants. 
           <br />
