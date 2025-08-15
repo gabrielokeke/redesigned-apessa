@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import { TypewriterEffect } from '../components/ui/typewriter-effect'; // Update the path if necessary
 
 const stats = [
   { number: '10,000+', label: 'Adolescents et jeunes impactés' },
@@ -21,7 +22,12 @@ const ImpactStats = () => {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ delay: i * 0.2, duration: 0.6, ease: 'easeOut' }}
           >
-            <p className="text-4xl md:text-5xl font-extrabold">{number}</p>
+            {/* Typewriter Effect for number */}
+            <TypewriterEffect
+              words={[{ text: number }]}
+              className="text-4xl md:text-5xl font-extrabold"
+              cursorClassName="bg-red-500"
+            />
             <p className="mt-2 text-lg md:text-xl font-medium">{label}</p>
           </motion.div>
         ))}

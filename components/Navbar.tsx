@@ -6,7 +6,6 @@ import { useState, useEffect } from "react";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaHome, FaInfoCircle, FaHandshake, FaUsers, FaBlog, FaEnvelope } from "react-icons/fa";
-import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 
 const linkIcons = [
   <FaHome />,
@@ -17,55 +16,39 @@ const linkIcons = [
   <FaEnvelope />,
 ];
 
-function Navbar() {
+const apessaLinks = [
+  { href: "/", label: "Accueil", isScroll: false },
+  { href: "/about", label: "A Propos", isScroll: false },
+  { href: "partenaires", label: "Partenaires", isScroll: true },
+  { href: "/resources", label: "Reseau des benevoles", isScroll: false },
+  { href: "/blog", label: "Blog", isScroll: false },
+  { href: "/contact", label: "Contact", isScroll: false },
+];
+
+export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const apessaLinks = [
-    { href: "/", label: "Accueil" },
-    { href: "/about", label: "A Propos" },
-    { href: "partenaires", label: "Partenaires", isScroll: true },
-    { href: "/resources", label: "Reseau des benevoles" },
-    { href: "/blog", label: "Blog" },
-    { href: "/contact", label: "Contact" },
-  ];
-
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
   const closeSidebar = () => setIsSidebarOpen(false);
 
-  // Function to handle cross-page scrolling
   const handleScrollNavigation = (sectionId: string) => {
-    closeSidebar(); // Close mobile sidebar if open
-    
+    closeSidebar();
     if (pathname === "/") {
-      // If we're already on homepage, just scroll
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ 
-          behavior: "smooth",
-          block: "start"
-        });
-      }
+      const el = document.getElementById(sectionId);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     } else {
-      // If we're on a different page, navigate to homepage with hash
       router.push(`/#${sectionId}`);
     }
   };
 
-  // Handle scroll on page load if there's a hash in the URL
   useEffect(() => {
     const hash = window.location.hash.substring(1);
     if (hash && pathname === "/") {
-      // Small delay to ensure the page has rendered
       setTimeout(() => {
-        const element = document.getElementById(hash);
-        if (element) {
-          element.scrollIntoView({ 
-            behavior: "smooth",
-            block: "start"
-          });
-        }
+        const el = document.getElementById(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 100);
     }
   }, [pathname]);
@@ -78,27 +61,46 @@ function Navbar() {
 
         {/* Desktop links */}
         <div className="hidden md:flex gap-4 font-bold text-sm">
-          {apessaLinks.map(({ href, label, isScroll }, i) => (
+          {apessaLinks.map(({ href, label, isScroll }, i) =>
             isScroll ? (
               <button
                 key={href}
                 onClick={() => handleScrollNavigation(href)}
-                className={`flex items-center gap-1 px-4 py-2 rounded-md transition-colors duration-200 hover:text-red-500 cursor-pointer bg-transparent border-none`}
+                className="relative flex items-center gap-1 px-4 py-2 transition-colors duration-200 hover:text-red-500"
               >
                 {linkIcons[i]} {label}
+                <motion.span
+                  layoutId="underline"
+                  className="absolute bottom-0 left-0 h-[2px] bg-red-500"
+                  initial={{ width: 0 }}
+                  whileHover={{ width: "100%" }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                />
               </button>
             ) : (
               <Link
                 key={href}
                 href={href}
-                className={`flex items-center gap-1 px-4 py-2 rounded-md transition-colors duration-200 hover:text-red-500 ${
-                  pathname === href ? "text-red-600" : "text-black"
-                }`}
+                className="relative flex items-center gap-1 px-4 py-2 transition-colors duration-200 hover:text-red-500"
               >
                 {linkIcons[i]} {label}
+                {(pathname === href) && (
+                  <motion.span
+                    className="absolute bottom-0 left-0 h-[2px] bg-red-500"
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+                <motion.span
+                  className="absolute bottom-0 left-0 h-[2px] bg-red-500"
+                  initial={{ width: 0 }}
+                  whileHover={{ width: "100%" }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                />
               </Link>
             )
-          ))}
+          )}
         </div>
 
         {/* Mobile menu button */}
@@ -163,5 +165,3 @@ function Navbar() {
     </>
   );
 }
-
-export default Navbar;
