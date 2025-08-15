@@ -30,7 +30,7 @@ function ContactezNous() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="font-extrabold text-4xl md:text-5xl mb-16"
+          className="font-extrabold text-2xl md:text-5xl mb-16"
         >
           Suivez-nous et contactez-nous !
         </motion.h1>

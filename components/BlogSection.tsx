@@ -17,14 +17,14 @@ const BlogSection = () => {
            Blog de l’APESSA
         </h2>
 
-        <p className="text-lg md:text-xl text-justify mb-8 leading-relaxed">
+        <p className="text-sm md:text-xl text-justify mb-8 leading-relaxed">
           Avec l’avancée de la technologie et le besoin d’informations des adolescents, on
           constate que ces derniers souffrent d’un manque évident de sources d’informations fiables.
           Il en est de même pour certains parents qui se retrouvent parfois dans l’incapacité
           d’apporter les réponses aux divers questionnements de leurs enfants.
         </p>
-        <p className="text-lg md:text-xl text-justify mb-12 leading-relaxed">
-          <strong className="font-black text-red-600 text-4xl">APESSA</strong> s’est donnée pour mission de mettre à disposition des adolescents,
+        <p className="text-sm md:text-xl text-justify mb-12 leading-relaxed">
+          <strong className="font-black text-red-600 text-2xl md:text-4xl">APESSA</strong> s’est donnée pour mission de mettre à disposition des adolescents,
           jeunes, parents et encadreurs ces informations, afin d’aider toute personne désireuse de
           s’informer de manière fiable et encourager les adolescents et les jeunes à adopter une
           sexualité construite et responsable.
@@ -34,11 +34,11 @@ const BlogSection = () => {
         <div className="bg-gray-100 p-6 md:p-10 rounded-lg shadow-lg">
           <div className="flex items-center mb-4">
             <FiMail className="text-red-600 text-3xl mr-3" />
-            <h3 className="text-xl md:text-2xl text-red-600 font-semibold">
+            <h3 className="text-lg md:text-2xl text-red-600 font-semibold">
               Ne ratez aucun article !
             </h3>
           </div>
-          <p className="mb-6 text-gray-700">
+          <p className="mb-6 text-sm md:text-lg text-gray-700">
             Saisissez votre adresse e‑mail pour vous abonner et recevoir une notification à chaque nouvelle publication.
           </p>
           <form className="flex flex-col md:flex-row gap-4">
