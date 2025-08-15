@@ -16,45 +16,34 @@ export type ResourceSlug =
 interface ResourceCard {
   slug: ResourceSlug;
   title: string;
-  description: string;
   imageUrl: string;
 }
 
 const resources: ResourceCard[] = [
   {
     slug: "resource-1",
-    title: "Resource 1",
-    description: "Brief description 1",
+    title: "Le RBA Parakou recrute de nouveaux membres",
     imageUrl: "/resource1.jpg",
   },
   {
     slug: "resource-2",
-    title: "Resource 2",
-    description: "Brief description 2",
+    title: "Conférence débat sur le thème Jeunesse, Emploi et Développement",
     imageUrl: "/resource2.jpg",
   },
-  {
-    slug: "resource-3",
-    title: "Resource 3",
-    description: "Brief description 3",
-    imageUrl: "/resource3.jpg",
-  },
+  
   {
     slug: "resource-4",
-    title: "Resource 4",
-    description: "Brief description 4",
+    title: "Appel à candidature pour le recrutement de 10 volontaires-bénévoles",
     imageUrl: "/resource4.jpg",
   },
   {
     slug: "resource-5",
-    title: "Resource 5",
-    description: "Brief description 5",
+    title: "Appel à candidature pour le recrutement de 10 volontaires-bénévoles étudiants (es)",
     imageUrl: "/resource5.jpg",
   },
   {
     slug: "resource-6",
-    title: "Resource 6",
-    description: "Brief description 6",
+    title: "Seize Jours d’activisme contre les violences faites aux femmes, édition 2019",
     imageUrl: "/resource6.jpg",
   },
 ];
@@ -62,7 +51,7 @@ const resources: ResourceCard[] = [
 export default function ResourcesPage() {
   return (
     <section className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
-      {resources.map(({ slug, title, description, imageUrl }, index) => (
+      {resources.map(({ slug, title, imageUrl }, index) => (
         <motion.div
           key={slug}
           initial={{ opacity: 0, y: 40 }}
@@ -86,7 +75,6 @@ export default function ResourcesPage() {
               <h3 className="font-bold text-xl mb-2 text-red-700 group-hover:text-red-900 transition-colors">
                 {title}
               </h3>
-              <p className="text-gray-700">{description}</p>
             </div>
           </Link>
         </motion.div>

@@ -51,9 +51,11 @@ const blogDetails = {
         <p className="text-gray-700">
           Les activités de loisirs ne sont pas qu’un simple divertissement ; elles constituent un levier essentiel pour le développement intellectuel, social et comportemental des jeunes. Que ce soit par le sport 🏀, les arts 🎨, la lecture 📚 ou les ateliers participatifs, ces moments de détente favorisent :
         </p>
-        <p>•	La gestion du stress et de la santé mentale</p>
-        <p>•	Le développement de compétences clés (créativité, communication, esprit d’équipe)</p>
-        <p>•	La construction d’un équilibre vie personnelle / sociale</p>
+        <div>
+        <p>• La gestion du stress et de la santé mentale</p>
+        <p>• Le développement de compétences clés (créativité, communication, esprit d’équipe)</p>
+        <p>• La construction d’un équilibre vie personnelle / sociale</p>
+        </div>
 
         <p>Le gouvernement béninois reconnaît d’ailleurs le droit aux loisirs comme un droit fondamental nourrissant la qualité de vie et l’épanouissement.</p>
 
@@ -79,16 +81,20 @@ const blogDetails = {
         </div>
 
         <h3 className="text-2xl font-bold text-red-700">IV – Idées pour s’engager cet été et invitation à partager</h3>
+          <div className='flex flex-col gap-4'>
           <p>Cet été, pourquoi ne pas :</p>
-          <p>•	Rejoindre ou organiser une activité de loisirs éducatifs ?</p>
-          <p>•	Participer à une action citoyenne dans ta communauté ?</p>
-          <p>•	Partager tes initiatives et réussites sur les réseaux sociaux avec #JeunesseBéninoise et #FiertéBénin ?</p>
+            <div>
+          <p>• Rejoindre ou organiser une activité de loisirs éducatifs ?</p>
+          <p>• Participer à une action citoyenne dans ta communauté ?</p>
+          <p>• Partager tes initiatives et réussites sur les réseaux sociaux avec #JeunesseBéninoise et #FiertéBénin ?</p></div>
+          </div>
 
           <p>Partage-nous tes histoires, inspire la communauté et bâtissons ensemble un réseau de jeunes motivés et solidaires !</p>
-
+          <div className='flex flex-col gap-2.5'>
           <h3 className="text-2xl font-bold text-red-700">Conclusion</h3>
 
           <p>Août 2025 est une période d’espoir, d’énergie et d’engagement. Que chaque jeune béninois saisisse cette occasion pour nourrir sa fierté, son bien-être et sa force d’action. Ensemble, faisons de ce mois un temps fort du renouveau et du progrès au Bénin ! ✨💪</p>
+          </div>
       </div>
     ),
   },
@@ -363,7 +369,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
   return (
      <div className="w-full bg-red-50">
     <div className="bg-red-50">
-      <article className="max-w-6xl mx-auto p-6 mt-20 flex flex-col lg:flex-row gap-8">
+      <article className="max-w-6xl mx-auto p-6  flex flex-col lg:flex-row gap-8">
         <div className="lg:w-1/3">
           <img
             src={blog.imageUrl}
@@ -381,12 +387,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
           </div>
         </div>
       </article>
-      {/* 
-      <div className="max-w-[70vw] mx-auto p-6">
-        <h2>Potential Component</h2>
-        <p>This could be a component that appears on all blogs, such as a call-to-action or a newsletter signup form.</p>
-      </div>
-      */}
+
     </div>
     </div>
   );
