@@ -1,22 +1,14 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaHome, FaInfoCircle, FaHandshake, FaUsers, FaBlog, FaEnvelope } from "react-icons/fa";
+import { FaHome, FaInfoCircle, FaUsers, FaBlog, FaEnvelope } from "react-icons/fa";
 
-const linkIcons = [
-  <FaHome />,
-  <FaInfoCircle />,
-  <FaHandshake />,
-  <FaUsers />,
-  <FaBlog />,
-  <FaEnvelope />,
-];
+const linkIcons = [<FaHome />, <FaInfoCircle />, <FaUsers />, <FaBlog />, <FaEnvelope />];
 
 const apessaLinks = [
   { href: "/", label: "Accueil" },
   { href: "/about", label: "A Propos" },
-  { href: "/partenaires", label: "Partenaires" },
-  { href: "/resources", label: "Reseau des benevoles" },
+  { href: "/resources", label: "Réseau des bénévoles" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
@@ -24,9 +16,9 @@ const apessaLinks = [
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-red-50 py-12 px-6 md:px-20">
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between gap-6 md:gap-12">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-12">
 
-        {/* Logo + Copyright */}
+        {/* Logo & copyright */}
         <motion.div
           className="flex flex-col items-center md:items-start md:w-1/3 gap-4"
           initial={{ opacity: 0, y: 30 }}
@@ -34,53 +26,39 @@ export default function Footer() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
         >
-          <img src="/apessa.png" alt="Apessa Logo" width={170} height={25} className="w-[170px] md:w-[340px] h-auto" />
-          <p className="text-gray-600 text-sm text-start md:text-left">
+          <img
+            src="/apessa.png"
+            alt="Apessa Logo"
+            className="w-[150px] md:w-[340px] h-auto"
+          />
+          <p className="text-gray-600 text-sm text-center md:text-left">
             © {new Date().getFullYear()} APESSA. Tous droits réservés.
           </p>
         </motion.div>
 
-        {/* First 3 links */}
-        <motion.nav
-          className="flex flex-col justify-center md:w-1/3 gap-6 flex-wrap text-gray-700 font-semibold text-base"
+        {/* Links section */}
+        <motion.div
+          className="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 items-start"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
         >
-          {apessaLinks.slice(0, 3).map(({ href, label }, i) => (
-            <Link key={href} href={href} className="relative flex items-center justify-center gap-2 hover:text-red-500 transition-colors duration-200">
-              {linkIcons[i]} {label}
-              <motion.span
-                className="absolute bottom-0 left-0 h-[2px] bg-red-500"
-                initial={{ width: 0 }}
-                whileHover={{ width: "100%" }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-              />
-            </Link>
+          {apessaLinks.map((link, i) => (
+            <motion.div
+              key={link.href}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <Link
+                href={link.href}
+                className="flex items-center justify-center gap-2 text-gray-700 font-semibold hover:text-red-600 transition-colors duration-200"
+              >
+                {linkIcons[i]} {link.label}
+              </Link>
+            </motion.div>
           ))}
-        </motion.nav>
-
-        {/* Last 3 links */}
-        <motion.nav
-          className="flex flex-col justify-center md:justify-end md:w-1/3 gap-6 flex-wrap text-gray-700 font-semibold text-base"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.9 }}
-        >
-          {apessaLinks.slice(3).map(({ href, label }, i) => (
-            <Link key={href} href={href} className="relative flex items-center justify-center gap-2 hover:text-red-500 transition-colors duration-200">
-              {linkIcons[i + 3]} {label}
-              <motion.span
-                className="absolute bottom-0 left-0 h-[2px] bg-red-500"
-                initial={{ width: 0 }}
-                whileHover={{ width: "100%" }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-              />
-            </Link>
-          ))}
-        </motion.nav>
+        </motion.div>
       </div>
     </footer>
   );

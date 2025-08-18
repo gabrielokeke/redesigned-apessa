@@ -12,7 +12,7 @@ const linkIcons = [<FaHome />, <FaInfoCircle />, <FaUsers />, <FaBlog />, <FaEnv
 const apessaLinks = [
   { href: "/", label: "Accueil" },
   { href: "/about", label: "A Propos" },
-  { href: "/resources", label: "Reseau des benevoles" },
+  { href: "/resources", label: "Réseau des bénévoles" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
