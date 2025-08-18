@@ -5,24 +5,16 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import { AnimatePresence, motion } from "framer-motion";
-import { FaHome, FaInfoCircle, FaHandshake, FaUsers, FaBlog, FaEnvelope } from "react-icons/fa";
+import { FaHome, FaInfoCircle, FaUsers, FaBlog, FaEnvelope } from "react-icons/fa";
 
-const linkIcons = [
-  <FaHome />,
-  <FaInfoCircle />,
-  <FaHandshake />,
-  <FaUsers />,
-  <FaBlog />,
-  <FaEnvelope />,
-];
+const linkIcons = [<FaHome />, <FaInfoCircle />, <FaUsers />, <FaBlog />, <FaEnvelope />];
 
 const apessaLinks = [
-  { href: "/", label: "Accueil", isScroll: false },
-  { href: "/about", label: "A Propos", isScroll: false },
-  { href: "partenaires", label: "Partenaires", isScroll: true },
-  { href: "/resources", label: "Reseau des benevoles", isScroll: false },
-  { href: "/blog", label: "Blog", isScroll: false },
-  { href: "/contact", label: "Contact", isScroll: false },
+  { href: "/", label: "Accueil" },
+  { href: "/about", label: "A Propos" },
+  { href: "/resources", label: "Reseau des benevoles" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -33,63 +25,34 @@ export default function Navbar() {
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
   const closeSidebar = () => setIsSidebarOpen(false);
 
-  const handleScrollNavigation = (sectionId: string) => {
-    closeSidebar();
-    if (pathname === "/") {
-      const el = document.getElementById(sectionId);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else {
-      router.push(`/#${sectionId}`);
-    }
-  };
-
-  useEffect(() => {
-    const hash = window.location.hash.substring(1);
-    if (hash && pathname === "/") {
-      setTimeout(() => {
-        const el = document.getElementById(hash);
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 100);
-    }
-  }, [pathname]);
-
   return (
     <>
       {/* Top navbar */}
       <div className="fixed top-0 left-0 z-50 flex w-full items-center justify-between bg-white px-6 py-4 shadow-md md:px-10">
-        <img src="/apessa.png" alt="APESSA Logo" width={170} height={25} className="w-[170px] md:w-[340px] h-auto" />
+        <img
+          src="/apessa.png"
+          alt="APESSA Logo"
+          width={170}
+          height={25}
+          className="w-[170px] md:w-[340px] h-auto"
+        />
 
         {/* Desktop links */}
         <div className="hidden md:flex gap-4 font-bold text-sm">
-          {apessaLinks.map(({ href, label, isScroll }, i) =>
-            isScroll ? (
-              <button
-                key={href}
-                onClick={() => handleScrollNavigation(href)}
-                className="relative flex items-center gap-1 px-4 py-2 transition-colors duration-200 hover:text-red-500"
-              >
-                {linkIcons[i]} {label}
-                <motion.span
-                  layoutId="underline"
-                  className="absolute bottom-0 left-0 h-[2px] bg-red-500"
-                  initial={{ width: 0 }}
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                />
-              </button>
-            ) : (
-                    <Link
-                      key={href}
-                      href={href}
-                      onClick={closeSidebar}
-                      className={`flex items-center gap-2 px-2 py-1 rounded-md transition-colors duration-200 hover:text-red-500 ${
-                        pathname === href ? "text-red-600" : "text-black"
-                      }`}
-                    >
-                      {linkIcons[i]} {label}
-                    </Link>
-            )
-          )}
+          {apessaLinks.map(({ href, label }, i) => (
+            <Link
+              key={href}
+              href={href}
+              onClick={closeSidebar}
+              className={`flex items-center gap-2 px-2 py-1 rounded-md transition-colors duration-200 ${
+                pathname === href
+                  ? "text-red-600 border-b-2 border-red-600"
+                  : "text-black hover:text-red-600"
+              }`}
+            >
+              {linkIcons[i]} {label}
+            </Link>
+          ))}
         </div>
 
         {/* Mobile menu button */}
@@ -117,35 +80,33 @@ export default function Navbar() {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
               <div className="flex items-center justify-between p-4">
-                <img src="/apessa.png" alt="APESSA Logo" width={170} height={25} className="w-[170px] h-auto" />
+                <img
+                  src="/apessa.png"
+                  alt="APESSA Logo"
+                  width={170}
+                  height={25}
+                  className="w-[170px] h-auto"
+                />
                 <button onClick={closeSidebar} aria-label="Close menu">
                   <HiOutlineX size={28} />
                 </button>
               </div>
 
               <nav className="flex flex-col p-4 space-y-3 font-bold">
-                {apessaLinks.map(({ href, label, isScroll }, i) =>
-                  isScroll ? (
-                    <button
-                      key={href}
-                      onClick={() => handleScrollNavigation(href)}
-                      className="flex items-center gap-2 px-2 py-1 rounded-md transition-colors duration-200 hover:text-red-500 cursor-pointer bg-transparent border-none text-left"
-                    >
-                      {linkIcons[i]} {label}
-                    </button>
-                  ) : (
-                    <Link
-                      key={href}
-                      href={href}
-                      onClick={closeSidebar}
-                      className={`flex items-center gap-2 px-2 py-1 rounded-md transition-colors duration-200 hover:text-red-500 ${
-                        pathname === href ? "text-red-600" : "text-black"
-                      }`}
-                    >
-                      {linkIcons[i]} {label}
-                    </Link>
-                  )
-                )}
+                {apessaLinks.map(({ href, label }, i) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    onClick={closeSidebar}
+                    className={`flex items-center gap-2 px-2 py-1 rounded-md transition-colors duration-200 ${
+                      pathname === href
+                        ? "text-red-600 border-b-2 border-red-600"
+                        : "text-black hover:text-red-600"
+                    }`}
+                  >
+                    {linkIcons[i]} {label}
+                  </Link>
+                ))}
               </nav>
             </motion.aside>
           </>
