@@ -19,7 +19,7 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
+        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 py-5 md:py-10",
         className
       )}
     >
@@ -68,12 +68,12 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden bg-gradient-to-b cursor-pointer text-red-500 font-semibold px-8 py-3  shadow-md from-red-100 via-red-50 to-white border border-transparent  relative z-20",
+        "rounded-2xl h-full w-full p-4 overflow-hidden bg-gradient-to-b cursor-pointer text-red-500 font-semibold px-4 md:px-8 md:py-3 py-1.5  shadow-md from-red-100 via-red-50 to-white border border-transparent  relative z-20",
         className
       )}
     >
       <div className="relative z-50">
-        <div className="p-4">{children}</div>
+        <div className="md:p-4 p-2">{children}</div>
       </div>
     </div>
   );

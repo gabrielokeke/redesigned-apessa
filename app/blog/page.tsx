@@ -26,12 +26,12 @@ const blogPosts: BlogCard[] = [
   },
   {
     slug: "blog-2",
-    title: "RECRUTEMENT DE DEUX ANIMATEURS COMMUNAUTAIRES",
+    title: "Recrutement de deux animateurs communautaires",
     imageUrl: "/blog2.jpg",
   },
   {
     slug: "blog-3",
-    title: "RECRUTEMENT DE DEUX GESTIONNAIRES DE PROJETS",
+    title: "Recrutement de deux gestionnaires de projets",
     imageUrl: "/blog3.jpg",
   },
   {
@@ -41,7 +41,7 @@ const blogPosts: BlogCard[] = [
   },
   {
     slug: "blog-5",
-    title: "AVIS DE RECRUTEMENT D’UN STATISTICIEN",
+    title: "Avis de Recrutement d'un statisticien",
     imageUrl: "/blog5.jpg",
   },
   {
@@ -53,11 +53,11 @@ const blogPosts: BlogCard[] = [
 
 export default function BlogPageList() {
   return (
-    <section className="p-6 space-y-8 bg-red-50">
+    <section className="md:p-6 py-12 px-3 space-y-8 bg-red-50">
       {/* Writeup section */}
-      <div className=" text-red-700 p-6 rounded-lg shadow-md">
-        <h2 className="md:text-5xl text-2xl  text-center font-black mb-4">Bienvenue sur notre blog</h2>
-        <p className="text-lg leading-relaxed">
+      <div className=" text-red-700 p-4 md:p-6 rounded-lg shadow-md">
+        <h2 className="md:text-5xl text-2xl underline text-center font-black mb-4">Bienvenue sur notre blog</h2>
+        <p className="md:text-lg text-base leading-relaxed">
           Ici, vous trouverez toutes les actualités, annonces et informations importantes concernant notre organisation et la communauté que nous servons. Chaque article est conçu pour tenir nos lecteurs informés des dernières initiatives, opportunités de participation et événements marquants. 
           <br />
           Nos publications couvrent le recrutement, les projets communautaires, les programmes de formation, ainsi que des réflexions sur le développement et la cohésion sociale. Nous croyons que la transparence et le partage de l’information renforcent l’engagement de chacun et favorisent un esprit de collaboration et de progrès.
@@ -83,13 +83,13 @@ export default function BlogPageList() {
               <div className="overflow-hidden">
                 <motion.img
                   src={imageUrl}
-                  alt={title}
+                  alt='apessa'
                   className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-500"
                   whileHover={{ scale: 1.05 }}
                 />
               </div>
               <div className="p-4">
-                <h3 className="font-bold text-xl mb-2 text-red-700 group-hover:text-red-900 transition-colors">
+                <h3 className="font-bold text-base md:text-xl mb-2 text-red-700 group-hover:text-red-900 transition-colors">
                   {title}
                 </h3>
               </div>

@@ -78,27 +78,16 @@ export default function Navbar() {
                 />
               </button>
             ) : (
-              <Link
-                key={href}
-                href={href}
-                className="relative flex items-center gap-1 px-4 py-2 transition-colors duration-200 hover:text-red-500"
-              >
-                {linkIcons[i]} {label}
-                {(pathname === href) && (
-                  <motion.span
-                    className="absolute bottom-0 left-0 h-[2px] bg-red-500"
-                    initial={{ width: 0 }}
-                    animate={{ width: "100%" }}
-                    transition={{ duration: 0.3 }}
-                  />
-                )}
-                <motion.span
-                  className="absolute bottom-0 left-0 h-[2px] bg-red-500"
-                  initial={{ width: 0 }}
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                />
-              </Link>
+                    <Link
+                      key={href}
+                      href={href}
+                      onClick={closeSidebar}
+                      className={`flex items-center gap-2 px-2 py-1 rounded-md transition-colors duration-200 hover:text-red-500 ${
+                        pathname === href ? "text-red-600" : "text-black"
+                      }`}
+                    >
+                      {linkIcons[i]} {label}
+                    </Link>
             )
           )}
         </div>

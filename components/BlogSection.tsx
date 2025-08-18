@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FiMail } from "react-icons/fi";
+import { TypewriterEffect } from "./ui/typewriter-effect";
 
 const BlogSection = () => {
   return (
@@ -13,7 +14,7 @@ const BlogSection = () => {
         viewport={{ once: true }}
         className="max-w-5xl mx-auto text-gray-800"
       >
-        <h2 className="text-3xl md:text-4xl font-black text-red-600 text-center mb-6">
+        <h2 className="text-2xl md:text-4xl font-black text-red-600 text-center mb-6">
            Blog de l’APESSA
         </h2>
 
@@ -33,8 +34,8 @@ const BlogSection = () => {
         {/* Newsletter Signup */}
         <div className="bg-gray-100 p-6 md:p-10 rounded-lg shadow-lg">
           <div className="flex items-center mb-4">
-            <FiMail className="text-red-600 text-3xl mr-3" />
-            <h3 className="text-lg md:text-2xl text-red-600 font-semibold">
+            <FiMail className="text-red-600 text-base md:text-3xl mr-1.5 md:mr-3" />
+            <h3 className="text-base md:text-2xl text-red-600 font-semibold">
               Ne ratez aucun article !
             </h3>
           </div>

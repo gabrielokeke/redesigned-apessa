@@ -42,7 +42,7 @@ const handleOpenPdf = () => {
 };
 
   return (
-    <section className="bg-gradient-to-b from-red-50 via-red-100 to-red-200 min-h-screen py-20 px-6 md:px-20">
+    <div className="bg-gradient-to-b from-red-50 via-red-100 to-red-200 min-h-screen py-20 px-6 md:px-20">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -50,18 +50,26 @@ const handleOpenPdf = () => {
         viewport={{ once: true }}
         className="max-w-4xl mx-auto text-gray-900"
       >
-        <h1 className="text-4xl md:text-5xl font-extrabold text-red-700 mb-8 text-center">
+        <h1 className="text-2xl md:text-5xl font-extrabold text-red-700 mb-4 md:mb-8 text-center">
           QUI SOMMES-NOUS?
         </h1>
 
-        <p className="text-lg md:text-xl leading-relaxed text-justify mb-16">
-          Avec l’avancée de la technologie et le besoin d’informations des adolescents, on constate que ces derniers souffrent d’un manque évident de sources d’informations fiables. Il en est de même pour certains parents qui se retrouvent parfois dans l’incapacité d’apporter les réponses aux divers questionnements de leurs enfants. De ce constat,{" "}
-          <strong className="text-red-600">APESSA</strong> s’est donnée pour mission de mettre à disposition des adolescents, jeunes, parents et encadreurs ces informations, afin d’aider toute personne désireuse de s’informer de manière fiable et encourager les adolescents et les jeunes à adopter une sexualité construite et responsable…
+        <p className="text-sm md:text-xl leading-relaxed text-justify mb-10 md:mb-16">
+          Avec l’avancée de la technologie et le besoin d’informations des adolescents,
+           on constate que ces derniers souffrent d’un manque évident de sources
+            d’informations fiables. Il en est de même pour certains parents qui 
+            se retrouvent parfois dans l’incapacité d’apporter les réponses aux divers
+             questionnements de leurs enfants. De ce constat,{" "}
+          <strong className="text-red-700 text-xl md:text-2xl">APESSA</strong> s’est 
+          donnée pour mission de mettre à disposition des adolescents, jeunes,
+           parents et encadreurs ces informations, afin d’aider toute personne 
+           désireuse de s’informer de manière fiable et encourager les adolescents 
+           et les jeunes à adopter une sexualité construite et responsable…
         </p>
 
         {/* FAQ Section */}
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-red-700 mb-8 text-center">
+          <h2 className="text-2xl md:text-5xl font-extrabold text-red-700 mb-4 md:mb-8 text-center">
             Questions Fréquentes
           </h2>
           <div className="space-y-4">
@@ -84,7 +92,7 @@ const handleOpenPdf = () => {
                       <motion.div
                         animate={{ rotate: isOpen ? 45 : 0 }}
                         transition={{ duration: 0.3 }}
-                        className="text-red-600 text-2xl flex-shrink-0"
+                        className="text-red-600 text-xl md:text-2xl flex-shrink-0"
                       >
                         <AiOutlinePlus />
                       </motion.div>
@@ -114,7 +122,7 @@ const handleOpenPdf = () => {
                           collapsed: { opacity: 0, height: 0 },
                         }}
                         transition={{ duration: 0.4, ease: "easeInOut" }}
-                        className="px-6 overflow-hidden text-gray-800 text-base md:text-lg"
+                        className="px-6 overflow-hidden text-gray-800 text-sm md:text-lg"
                       >
                         <p className="pb-6">{answer}</p>
                       </motion.div>
@@ -132,9 +140,9 @@ const handleOpenPdf = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center text-gray-900 mb-10 px-4"
+          className="max-w-3xl mx-auto text-center text-gray-900 mb-6 md:mb-10 px-2 md:px-4"
         >
-          <p className="text-lg md:text-xl leading-relaxed">
+          <p className="text-base md:text-xl leading-relaxed">
             Pour en savoir plus et avoir un accès direct à toutes nos ressources, cliquez ici pour accéder à notre espace dédié aux adolescents et jeunes!.
           </p>
         </motion.div>
@@ -143,14 +151,14 @@ const handleOpenPdf = () => {
         <div className="flex justify-center">
           <button
             onClick={handleOpenPdf}
-            className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 focus:bg-red-800 text-white font-semibold text-lg px-8 py-3 rounded-lg shadow-lg transition-colors duration-300 focus:outline-none"
+            className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 focus:bg-red-800 text-white font-semibold text-sm md:text-lg px-8 py-3 rounded-lg shadow-lg transition-colors duration-300 focus:outline-none"
           >
-            <FiDownload className="w-6 h-6" />
+            <FiDownload className="md:w-6 md:h-6 size-4" />
             Voir la brochure
           </button>
         </div>
       </motion.div>
-    </section>
+    </div>
   );
 };
 

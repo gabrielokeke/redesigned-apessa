@@ -50,7 +50,7 @@ const resources: ResourceCard[] = [
 
 export default function ResourcesPage() {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 bg-red-50">
+    <section className="grid grid-cols-1 md:grid-cols-3 gap-6 py-12 px-6 md:p-6 bg-red-50">
       {resources.map(({ slug, title, imageUrl }, index) => (
         <motion.div
           key={slug}
@@ -66,13 +66,13 @@ export default function ResourcesPage() {
             <div className="overflow-hidden">
               <motion.img
                 src={imageUrl}
-                alt={title}
+                alt="apessa"
                 className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-500"
                 whileHover={{ scale: 1.05 }}
               />
             </div>
             <div className="p-4">
-              <h3 className="font-bold text-xl mb-2 text-red-700 group-hover:text-red-900 transition-colors">
+              <h3 className="font-bold text-base md:text-xl mb-2 text-red-700 group-hover:text-red-900 transition-colors">
                 {title}
               </h3>
             </div>

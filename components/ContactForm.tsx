@@ -91,7 +91,7 @@ const ContactForm = () => {
       >
         {/* Header */}
         <header className="bg-red-600 p-6 rounded-t-lg shadow-md">
-          <h2 className="text-center flex justify-center items-center gap-2 text-2xl font-extrabold text-white">
+          <h2 className="text-center flex justify-center items-center gap-2 text-xl md:text-2xl font-extrabold text-white">
             Contactez-nous ! <LuMail size={28} className="text-white" />
           </h2>
         </header>

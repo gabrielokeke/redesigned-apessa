@@ -12,17 +12,17 @@ const DomainesTable = () => {
   return (
     <div className="overflow-x-auto">
       <table className="table-auto w-full">
-        <thead className="bg-gray-100">
+        <thead className="border">
           <tr>
-            <th className="px-4 py-2">N°</th>
-            <th className="px-4 py-2">Domaines</th>
+            <th className="px-4 py-2 text-gray-700 md:text-lg text-base leading-relaxed">N°</th>
+            <th className="px-4 py-2 text-gray-700 md:text-lg text-base leading-relaxed">Domaines</th>
           </tr>
         </thead>
         <tbody>
           {domaines.map((domaine) => (
             <tr key={domaine.id}>
-              <td className="border px-4 py-2">{domaine.id}</td>
-              <td className="border px-4 py-2">{domaine.name}</td>
+              <td className="border px-4 py-2 text-gray-700 md:text-lg text-base leading-relaxed">{domaine.id}</td>
+              <td className="border px-4 py-2 text-gray-700 md:text-lg text-base leading-relaxed">{domaine.name}</td>
             </tr>
           ))}
         </tbody>

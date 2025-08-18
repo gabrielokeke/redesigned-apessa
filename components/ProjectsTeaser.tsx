@@ -12,21 +12,21 @@ const projects = [
     description:
       'Au sein de l’APESSA, un réseau de jeunes empreints de leadership grandit jour après jour en menant des initiatives à fort impact sur l’éducation et la sante des jeunes de leur communauté. Rejoins-nous c’est gratuit !',
     icon: <FiUsers size={28} className="text-red-600 mb-2" />,
-    link: '/projects/reseau-de-benevoles',
+    link: '/blog',
   },
   {
     title: 'Les Ados Veulent Savoir',
     description:
       'Les réponses à toutes les questions des adolescents et jeunes. Application mobile et plateforme d’information fiable pour adolescents et jeunes que vous pouvez télécharger et exploiter librement.',
     icon: <FiSmartphone size={28} className="text-red-600 mb-2" />,
-    link: '/projects/les-ados-veulent-savoir',
+    link: '/about',
   },
   {
     title: 'Nos Projets',
     description:
       'Adolescents et jeunes, population à la base : tous informés, autonomes et responsables ! Plus de cinq ans d’actions concrètes avec le soutien de partenaires techniques et financiers.',
     icon: <FiTarget size={28} className="text-red-600 mb-2" />,
-    link: '/projects/nos-projets',
+    link: '/contact',
   },
 ];
 
