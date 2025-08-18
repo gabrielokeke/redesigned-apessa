@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaHome, FaInfoCircle, FaUsers, FaBlog, FaEnvelope } from "react-icons/fa";
+import { FaHome, FaInfoCircle, FaUsers, FaBlog, FaEnvelope, FaFilePdf } from "react-icons/fa";
 
 const linkIcons = [<FaHome />, <FaInfoCircle />, <FaUsers />, <FaBlog />, <FaEnvelope />];
 
@@ -58,6 +58,21 @@ export default function Footer() {
               </Link>
             </motion.div>
           ))}
+
+          {/* PDF Download Link */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          >
+            <Link
+              href="/PSD_APESSA_2021-2025_VF.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center text-sm justify-center gap-2 text-gray-700 font-semibold hover:text-red-600 transition-colors duration-200"
+            >
+              <FaFilePdf /> Télécharger PSD_APESSA_2021-2025_VF
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </footer>
